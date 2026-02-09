@@ -2,7 +2,7 @@ options(warn=1)
 
 predict_chap <- function(model_fn, historic_data_fn, future_climatedata_fn, predictions_fn) {
   df <- read.csv(future_climatedata_fn)
-  X <- df[, c("rainfall", "mean_temperature"), drop = FALSE]
+  X <- df[, c("rainfall"), drop = FALSE]
   model <- readRDS(model_fn)  # Assumes the model was saved using saveRDS
 
   y_pred <- predict(model, newdata = X)
